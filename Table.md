@@ -17,3 +17,14 @@ CREATE TABLE orders (
 );
 ```
 ***
+# `INSERT` example
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT
+);
+
+INSERT INTO users (name, age) VALUES ('Ali', 25);
+```
+***
