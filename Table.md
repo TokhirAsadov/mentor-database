@@ -28,3 +28,24 @@ CREATE TABLE users (
 INSERT INTO users (name, age) VALUES ('Ali', 25);
 ```
 ***
+# `SELECT` examples
+### Oddiy `select`
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    age INT
+);
+
+INSERT INTO users (name, age) VALUES ('Ali', 25), ('Vali', 30), ('Nargiza', 22);
+
+SELECT * FROM users;
+```
+```txt
+ id |  name   | age
+----+---------+-----
+  1 | Ali     |  25
+  2 | Vali    |  30
+  3 | Nargiza |  22
+```
+***
