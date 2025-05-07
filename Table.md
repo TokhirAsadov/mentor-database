@@ -49,3 +49,8 @@ SELECT * FROM users;
   3 | Nargiza |  22
 ```
 ***
+### Muayyan ustunlar:
+```sql
+SELECT name, age FROM users;
+```
+***
