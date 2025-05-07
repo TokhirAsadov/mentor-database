@@ -134,3 +134,43 @@ USING orders
 WHERE users.id = orders.user_id AND orders.order_date < '2024-01-01';
 ```
 ***
+# `UPSERT` statement examples
+### `DO NOTHING` bilan `UPSERT`
+Agar konflikt yuzaga kelsa, hech narsa qilmaydi, ya'ni qator qo‘shilmaydi.
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE,
+    name VARCHAR(100),
+    age INT
+);
+
+INSERT INTO users (email, name, age)
+VALUES ('ali@example.com', 'Ali', 25)
+ON CONFLICT (email) DO NOTHING;
+```
+Natija:
+- Agar email = 'ali@example.com' bo‘lgan qator mavjud bo‘lmasa, yangi qator qo‘shiladi.
+- Agar mavjud bo‘lsa, hech narsa o‘zgarmaydi.
+***
+### `DO UPDATE` bilan `UPSERT`
+Agar konflikt yuzaga kelsa, mavjud qatorni yangilaydi.
+```sql
+INSERT INTO users (email, name, age)
+VALUES ('ali@example.com', 'Aliyor', 26)
+ON CONFLICT (email) DO UPDATE
+SET name = EXCLUDED.name,
+    age = EXCLUDED.age
+RETURNING id, email, name, age;
+```
+Tushuntirish:
+- `EXCLUDED`: Qo‘shilmoqchi bo‘lgan, lekin konflikt kelib chiqqan qiymatlarni ifodalaydi.
+- Agar `email = 'ali@example.com'` mavjud bo‘lsa, `name` va `age` yangi qiymatlarga o‘zgartiriladi.
+- Agar mavjud bo‘lmasa, yangi qator qo‘shiladi.
+Natija:
+```txt
+ id |       email       |  name  | age
+----+-------------------+--------+-----
+  1 | ali@example.com   | Aliyor |  26
+```
+***
