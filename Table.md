@@ -17,7 +17,7 @@ CREATE TABLE orders (
 );
 ```
 ***
-# `INSERT` example
+# `INSERT` statement example
 ```sql
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -28,7 +28,7 @@ CREATE TABLE users (
 INSERT INTO users (name, age) VALUES ('Ali', 25);
 ```
 ***
-# `SELECT` examples
+# `SELECT` statement examples
 ### Oddiy `select`
 ```sql
 CREATE TABLE users (
@@ -54,7 +54,7 @@ SELECT * FROM users;
 SELECT name, age FROM users;
 ```
 ***
-# `UPDATE` examples
+# `UPDATE` statement examples
 ### Oddiy `update`
 ```sql
 CREATE TABLE users (
@@ -99,5 +99,38 @@ SET status = CASE
     WHEN age >= 25 THEN 'senior'
     ELSE 'unknown'
 END;
+```
+***
+# `DELETE` statement example
+### Oddiy `DELETE`
+```sql
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    status VARCHAR(20) DEFAULT 'active'
+);
+
+INSERT INTO users (name, age) 
+VALUES ('Ali', 25), ('Vali', 30), ('Nargiza', 22);
+
+DELETE FROM users
+WHERE name = 'Ali';
+```
+Natija: `users` jadvalida `name = 'Ali'` bo‘lgan qator o‘chiriladi.
+### `USING` bilan Boshqa Jadvaldan Foydalanish. Murakkab `DELETE`
+```sql
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
+    order_date DATE
+);
+
+INSERT INTO orders (user_id, order_date) 
+VALUES (2, '2023-01-01'), (3, '2024-01-01');
+
+DELETE FROM users
+USING orders
+WHERE users.id = orders.user_id AND orders.order_date < '2024-01-01';
 ```
 ***
