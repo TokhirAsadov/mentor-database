@@ -7,3 +7,13 @@ CREATE TABLE users (
 );
 ```
 ***
+# Constraints ishlatilinishiga example
+```sql
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
+    total_amount NUMERIC CHECK (total_amount >= 0),
+    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
+***
