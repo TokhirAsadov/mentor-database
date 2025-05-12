@@ -1,6 +1,6 @@
 # PostgreSQL-da ALTER TABLE Buyrug'iga oid To'liq Qo'llanma
 
-Bu hujjat PostgreSQL-da `ALTER TABLE` buyrug'ining barcha holatlarini to'liq tushuntiradi va har bir holat uchun amaliy misollar keltiradi. `ALTER TABLE` jadval tuzilmasini o'zgartirish uchun ishlatiladi: ustunlar qo'shish/o'chirish, ma'lumot turlarini o'zgartirish, cheklovlar qo'shish/o'chirish, nom o'zgartirish va boshqa operatsiyalar.
+`ALTER TABLE` jadval tuzilmasini o'zgartirish uchun ishlatiladi: ustunlar qo'shish/o'chirish, ma'lumot turlarini o'zgartirish, cheklovlar qo'shish/o'chirish, nom o'zgartirish va boshqa operatsiyalar.
 
 ---
 
