@@ -317,7 +317,3 @@ VALUES (10, 'newuser', 'newuser@example.com');
      DROP TRIGGER trigger_name ON table_name;
      ```
    - Triggerni yangilash uchun `CREATE OR REPLACE TRIGGER` ishlatiladi (PostgreSQL 14+).
-
-## 7. Xulosa
-
-PostgreSQL'da triggerlar ma'lumotlar bazasida avtomatik operatsiyalarni boshqarish uchun kuchli vositadir. Ular `BEFORE`, `AFTER` yoki `INSTEAD OF` sifatida `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE` hodisalariga javob beradi. Triggerlar row-level yoki statement-level bo'lishi mumkin va `NEW`, `OLD`, `TG_OP` kabi maxsus o'zgaruvchilar yordamida ma'lumotlarni boshqaradi. Triggerlar ma'lumotlar yaxlitligi, loglash, avtomatlashtirish va `VIEW` jadvallari bilan ishlashda muhim rol o'ynaydi. Ishlash, xavfsizlik va tsiklik xatolar kabi masalalarga e'tibor berish muhim.
