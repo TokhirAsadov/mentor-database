@@ -270,5 +270,3 @@ SQL'dagi JOIN operatsiyalari jadvallar o'rtasidagi munosabatlarni tahlil qilish 
 - **FULL JOIN**: Ikkala jadv aldagi barcha qatorlarni qaytaradi.
 - **CROSS JOIN**: Kartesian ko'paytma hosil qiladi.
 - **NATURAL JOIN**: Avtomatik birlashadi, lekin kam ishlatiladi.
-
-JOINlar PostgreSQL'da MVCC va optimallashtirish mexanizmlari bilan samarali ishlaydi. To'g'ri JOIN turi va indekslardan foydalanish so'rovlarning samaradorligini oshiradi.
